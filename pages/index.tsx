@@ -1,21 +1,32 @@
-import type { NextPage } from 'next';
 import axios from 'axios';
+import { VideoCard, NoResults } from '../components';
+import { Video } from '../types';
 
-const Home: NextPage = () => {
+interface IProps {
+  videos: Video[],
+}
+
+const Home = ({videos}: IProps) => {
   return (
-    <div className="text-3xl font-bold underline">
-      GraffTok
+    <div className="flex flex-col gap-10 videos h-full">
+      {videos.length ? (
+        videos.map((video: Video) =>(
+          <VideoCard post={video} key={video._id} />
+        ))
+      ) : (
+        <NoResults text={'No videos'} />
+      )}
     </div>
   )
 }
 
 export const getServerSideProps = async () => {
-  const response = await axios.get(`http://localhost:3000/api/post`);
-
-  console.log(response.data.name);
+  const {data} = await axios.get(`http://localhost:3000/api/post`);
 
   return {
-    props: {}
+    props: {
+      videos: data
+    }
   }
 }
 
