@@ -8,6 +8,7 @@ import { BiSearch } from 'react-icons/bi';
 import { IoMdAdd } from 'react-icons/io';
 
 import Logo from '../utils/grafftok-logo.png';
+import { createOrGetUser } from '../utils';
 
 const Navbar = () => {
   const user = false;
@@ -31,7 +32,7 @@ const Navbar = () => {
           <div>Logged In</div>
         ) : (
           <GoogleLogin
-           onSuccess={(response) => console.log(response)}
+           onSuccess={(response) => createOrGetUser(response)}
            onError={() => console.log('Error')}
            />
         )}
