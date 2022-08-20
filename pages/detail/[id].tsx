@@ -8,15 +8,26 @@ import { BsFillPlayFill } from 'react-icons/bs';
 import { HiVolumeUp, HiVolumeOff } from 'react-icons/hi';
 import axios from 'axios';
 import { BASE_URL } from '../../utils';
+import {Video} from '../../types'
 
-const Detail = () => {
+interface IProps {
+  postDetails: Video,
+}
+
+const Detail = ({postDetails}: IProps) => {
+  const [post,setPost] = useState(postDetails);
+
   return (
     <div>detail page</div>
   )
 }
 
-export const getServerSideProps = async ({params: {id}}) => {
+export const getServerSideProps = async ({params: {id}} : {params: {id: string}}) => {
   const { data } = await axios.get(`${BASE_URL}/api/post/${id}`)
+
+  return {
+    props: {postDetails: data}
+  }
 }
 
 export default Detail
