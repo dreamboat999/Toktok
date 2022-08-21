@@ -5,5 +5,7 @@ import SuggestedAccounts from './SuggestedAccounts';
 import Footer from './Footer';
 import VideoCard from './VideoCard';
 import NoResults from './NoResults';
+import Comments from './Comments';
+import LikeButton from './LikeButton';
 
-export {Navbar, Sidebar, SuggestedAccounts, Discover, Footer, VideoCard, NoResults};
+export {Navbar, Sidebar, SuggestedAccounts, Discover, Footer, VideoCard, NoResults, Comments, LikeButton};
