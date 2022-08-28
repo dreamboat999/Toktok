@@ -26,15 +26,15 @@ const Comments = ({comment, setComment, addComment, comments, isPostingComment}:
   const {userProfile, allUsers} = useAuthStore();
 
   return (
-    <div className="border-2 border-[#777784] pt-4 px-10 bg-[#464751] border-b-2 lg:pb-0 pb-[100px] rounded-xl">
-      <div className="overflow-scroll h-[300px]">
+    <div className="border-2 border-[#777784] pt-4  px-10 bg-[#464751] border-b-2 lg:mb-10 mb-[80px] rounded-xl">
+      <div className="overflow-scroll lg:h-[457px]">
       {comments?.length > 0 ? (
           comments?.map((item: IComment, idx: number) => (
             <>
               {allUsers?.map(
                 (user: IUser) =>
                   user._id === (item.postedBy._ref || item.postedBy._id) && (
-                    <div className=' p-2 items-center' key={idx}>
+                    <div className='p-2 items-center' key={idx}>
                       <Link href={`/profile/${user._id}`}>
                         <div className='flex items-start gap-3'>
                           <div className='w-12 h-12'>
@@ -69,13 +69,13 @@ const Comments = ({comment, setComment, addComment, comments, isPostingComment}:
         )}
       </div>
       {userProfile && (
-        <div className="absolute bottom-0 left-0 pb-6 px-2 md:px-10">
+        <div className="absolute bottom-0 left-0 md:pb-6 px-2 md:px-10">
           <form onSubmit={addComment} className="flex gap-4">
             <input
               value={comment}
               onChange={(e) => setComment(e.target.value)}
               placeholder="Add comment"
-              className="bg-[#464751] px-6 py-4 text-base font-medium border-2 w-[250px] md:w-[700px] lg:w-[350px] border-[#777784] focus:outline-none focus:border-2 focus:border-gray-300 flex-1 rounded-lg"
+              className="bg-[#464751] px-6 py-4 text-base font-medium border-2 w-[250px] md:w-[700px] lg:w-[350px] border-[#777784] focus:outline-none focus:border-2 focus:border-gray-300 rounded-lg"
             />
             <button 
              className="text-base text-gray-200"
