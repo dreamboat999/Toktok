@@ -5,13 +5,15 @@ import axios from 'axios';
 import Link from 'next/link'
 import {useRouter} from 'next/router'
 
-import { VideoCard, NoResults } from '../../components';
+import { VideoCard, NoResults , Discover } from '../../components';
 import {IUser, Video} from '../../types';
 import { BASE_URL } from '../../utils';
 import useAuthStore from '../../store/authStore';
 
 const Search = ({videos}: {videos: Video[]}) => {
-  const [isAccounts, setIsAccounts] = useState(false)
+  const [isAccounts, setIsAccounts] = useState(false);
+  const router = useRouter();
+  const {searchTerm} = router.query;
 
   const accounts = isAccounts ? 'border-b-2 border-black' : 'text-gray-400'
   const isVideos = !isAccounts ? 'border-b-2 border-black' : 'text-gray-400'
@@ -22,6 +24,17 @@ const Search = ({videos}: {videos: Video[]}) => {
           <p className={`text-xl font-semibold cursor-pointer mt-2 ${accounts}`} onClick={() => setIsAccounts(true)}>Accounts</p>
           <p className={`text-xl font-semibold cursor-pointer mt-2 ${isVideos}`} onClick={() => setIsAccounts(false)}>Videos</p>
         </div>
+        {isAccounts ? (
+          <div>
+            ACCOUNTNS
+          </div>
+        ) : <div className="md:mt-16 flex flex-wrap gap-6 md:justfiy-start">
+          {videos.length ? (
+            videos.map((video: Video, index) => (
+              <VideoCard post={video} key={index}/>
+            ))
+          ) : <NoResults text={`No video results for ${searchTerm}`}/>}
+          </div>}
     </div>
   )
 }
