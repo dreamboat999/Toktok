@@ -75,11 +75,11 @@ const Detail = ({postDetails}: IProps) => {
   if(!post) return null;
 
   return (
-    <div className="flex w-full absolute top-0 left-0 bg-white flex-wrap lg:flex-nowrap">
-      <div className="relative flex-2 w-[1000px] lg:w-9/12 flex justify-center items-center bg-black">
+    <div className="flex w-full absolute top-0 left-0 bg-[#24252D] flex-wrap lg:flex-nowrap">
+      <div className="relative flex-2 w-[1000px] lg:w-9/12 flex justify-center items-center bg-[#15151b]">
         <div className="absolute top-6 left-2 lg:left-6 flex gap-6 z-50">
           <p className="cursor-pointer" onClick={() => router.back()}>
-            <MdOutlineCancel className="text-white text-[35px]"/>
+            <MdOutlineCancel className="text-[#f5f3f3] text-[35px]"/>
           </p>
         </div>
         <div className="relative">
@@ -96,7 +96,7 @@ const Detail = ({postDetails}: IProps) => {
           <div className="absolute top-[45%] left-[45%] cursor-pointer">
           {!playing && (
             <button onClick={onVideoClick}>
-              <BsFillPlayFill className="text-white text-6xl lg:text-8xl"/>
+              <BsFillPlayFill className="text-[#f5f3f3] text-6xl lg:text-8xl"/>
             </button>
           )}
           </div>
@@ -104,11 +104,11 @@ const Detail = ({postDetails}: IProps) => {
         <div className="absolute bottom-5 lg:bottom-10 right-5 lg:right-10 cursor-pointer">
             {isVideoMuted ? (
               <button onClick={() => setIsVideoMuted(false)}>
-                <HiVolumeOff className="text-white text-2xl lg:text-4xl"/>
+                <HiVolumeOff className="text-[#f5f3f3] text-2xl lg:text-4xl"/>
               </button>
             ) : (
               <button onClick={() => setIsVideoMuted(true)}>
-                <HiVolumeUp className="text-white text-2xl lg:text-4xl" />
+                <HiVolumeUp className="text-[#f5f3f3] text-2xl lg:text-4xl" />
               </button>
             )}
         </div>
@@ -133,7 +133,7 @@ const Detail = ({postDetails}: IProps) => {
           <div>
             <Link href="/">
               <div className="mt-3 flex flex-col gap-2">
-                <p className="flex gap-2 items-center md:text-base font-bold text-primary">{post.postedBy.userName} {`
+                <p className="flex gap-2 items-center md:text-base font-bold text-gray-200">{post.postedBy.userName} {`
                   `}
                 <GoVerified className="text-blue-400 text-base"/>
                 </p>

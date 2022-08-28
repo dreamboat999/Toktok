@@ -26,7 +26,7 @@ const Comments = ({comment, setComment, addComment, comments, isPostingComment}:
   const {userProfile, allUsers} = useAuthStore();
 
   return (
-    <div className="border-t-2 border-gray-200 pt-4 px-10 bg-[#F8F8F8] border-b-2 lg:pb-0 pb-[100px]">
+    <div className="border-2 border-[#777784] pt-4 px-10 bg-[#464751] border-b-2 lg:pb-0 pb-[100px] rounded-xl">
       <div className="overflow-scroll h-[300px]">
       {comments?.length > 0 ? (
           comments?.map((item: IComment, idx: number) => (
@@ -48,14 +48,14 @@ const Comments = ({comment, setComment, addComment, comments, isPostingComment}:
                             />
                           </div>
 
-                          <p className='flex cursor-pointer gap-1 items-center text-[18px] font-bold leading-6 text-primary'>
+                          <p className='flex cursor-pointer gap-1 items-center text-[18px] font-bold leading-6 text-gray-900 hover:text-gray-300'>
                             {user.userName}{' '}
                             <GoVerified className='text-blue-400' />
                           </p>
                         </div>
                       </Link>
                       <div>
-                        <p className='-mt-5 ml-16 text-[16px] mr-8'>
+                        <p className='-mt-5 ml-16 text-gray-100 text-[16px] mr-8'>
                           {item.comment}
                         </p>
                       </div>
@@ -75,10 +75,10 @@ const Comments = ({comment, setComment, addComment, comments, isPostingComment}:
               value={comment}
               onChange={(e) => setComment(e.target.value)}
               placeholder="Add comment"
-              className="bg-primary px-6 py-4 text-base font-medium border-2 w-[250px] md:w-[700px] lg:w-[350px] border-gray-100 focus:outline-none focus:border-2 focus:border-gray-300 flex-1 rounded-lg"
+              className="bg-[#464751] px-6 py-4 text-base font-medium border-2 w-[250px] md:w-[700px] lg:w-[350px] border-[#777784] focus:outline-none focus:border-2 focus:border-gray-300 flex-1 rounded-lg"
             />
             <button 
-             className="text-base text-gray-400"
+             className="text-base text-gray-200"
              onClick={addComment}
             >
               {isPostingComment ? 'Commenting...' : 'Comment'}

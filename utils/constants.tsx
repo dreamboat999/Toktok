@@ -1,39 +1,32 @@
-import { BsCode, BsEmojiSunglasses } from 'react-icons/bs';
-import { GiCakeSlice, GiGalaxy, GiLipstick } from 'react-icons/gi';
-import { FaPaw, FaMedal, FaGamepad } from 'react-icons/fa';
+import { BsFillCameraFill, BsPenFill } from 'react-icons/bs';
+import { GiStoneWall } from 'react-icons/gi';
+import { FaTrain, FaBomb } from 'react-icons/fa';
+import {RiTrainFill} from 'react-icons/ri'
 
 export const topics = [
   {
-    name: 'coding',
-    icon: <BsCode />,
+    name: 'walls',
+    icon: <GiStoneWall />,
   },
   {
-    name: 'comedy',
-    icon: <BsEmojiSunglasses />,
+    name: 'trains',
+    icon: <FaTrain />,
   },
   {
-    name: 'gaming',
-    icon: <FaGamepad />,
+    name: 'bombing',
+    icon: <FaBomb />,
   },
   {
-    name: 'food',
-    icon: <GiCakeSlice />,
+    name: 'tagging',
+    icon: <BsPenFill />,
   },
   {
-    name: 'dance',
-    icon: <GiGalaxy />,
+    name: 'metro',
+    icon: <RiTrainFill />,
   },
   {
-    name: 'beauty',
-    icon: <GiLipstick />,
-  },
-  {
-    name: 'animals',
-    icon: <FaPaw />,
-  },
-  {
-    name: 'sports',
-    icon: <FaMedal />,
+    name: 'Spoted',
+    icon: <BsFillCameraFill />,
   },
 ];
 
